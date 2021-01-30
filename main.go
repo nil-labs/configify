@@ -1,7 +1,8 @@
 package main
 
-import "fmt"
-
-func main(){
-	fmt.Println("hello world")
+//Greet gives a nice greetings string 
+func Greet() string{
+	return "hello world"
 }
+
+
