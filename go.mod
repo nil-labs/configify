@@ -1,3 +1,3 @@
 module github.com/nil-labs/configify
 
-go 1.10
+go 1.15.7
