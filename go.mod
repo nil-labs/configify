@@ -1,6 +1,6 @@
 module github.com/nil-labs/configify
 
-go 1.15.7
+go 1.15
 
 
 require (
