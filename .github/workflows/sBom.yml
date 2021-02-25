@@ -9,11 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - uses: AppThreat/cdxgen-action@v1
-      with:
-        output: "./reports/bom.xml"
-        serverUrl: "https://deptrack.appthreat.io"
-        apiKey: ${{ secrets.apiKey }}
+#       with:
+#         output: "./reports/bom.xml"
 
     - uses: actions/upload-artifact@v1
       with:
