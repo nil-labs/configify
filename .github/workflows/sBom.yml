@@ -9,5 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: AppThreat/cdxgen-action@v1
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: Generate BOM using cdxgen
+      uses: appthreat/cdxgen-action@v1
+      with:
+        output: "./reports/bom.xml"
