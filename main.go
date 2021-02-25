@@ -11,7 +11,7 @@ func main(){
 }
 
 
-// Greet gives a nice greetings string 
+
 func Greet() {
 		data := [][]string{
 		[]string{"A", "The Good", "500"},
@@ -27,6 +27,7 @@ func Greet() {
 		table.Append(v)
 	}
 	table.Render() // Send output
+
 }
 
 
