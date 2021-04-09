@@ -15,7 +15,7 @@ jobs:
       uses: appthreat/cdxgen-action@v1
       with:
         projectId: nil-cfg
-        projectName: Configify
+        projectName: yaml
         projectVersion: 0.0.1
         output: "./reports/bom.xml"
     - uses: actions/upload-artifact@v1

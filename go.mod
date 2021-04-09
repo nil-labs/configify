@@ -1,5 +1,4 @@
-module github.com/nil-labs/configify
+module github.com/nil-labs/yaml
 
-go 1.15
+go 1.16
 
-require github.com/olekukonko/tablewriter v0.0.5
