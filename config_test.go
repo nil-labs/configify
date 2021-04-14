@@ -12,13 +12,31 @@ import (
 var _ = Describe("Config", func() {
 
 	Describe("Constructing a Config object from reader containing yaml", func(){
+		var yaml string
+		//var cfg *config.Config
+		var err error
+		BeforeEach(func(){
+			r:=strings.NewReader(yaml)
+			_,err=config.FromReader(r)
+		})
 		Context("when the yaml is valid", func(){
-			It("should succeed", func(){
-				yaml:=`
+			JustBeforeEach(func(){
+				yaml=`
 				---
 				some:[]`
-				r:=strings.NewReader(yaml)
-				Expect(config.FromReader(r)).To(Succeed())
+			})
+			It("should succeed", func(){
+				Expect(err).NotTo(HaveOccurred())
+			})
+		})
+		Context("when the yaml is invalid", func(){
+			JustBeforeEach(func(){
+				yaml=`
+				---
+				sasasas`
+			})
+			It("should fail", func(){
+				Expect(err).To(HaveOccurred())
 			})
 		})
 	})
