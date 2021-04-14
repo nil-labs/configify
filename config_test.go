@@ -11,14 +11,14 @@ import (
 
 var _ = Describe("Config", func() {
 
-	Describe("Constructing a Config object from reader containing yaml", func(){
 		var yaml string
-		//var cfg *config.Config
+		var cfg *config.Config
 		var err error
 		BeforeEach(func(){
 			r:=strings.NewReader(yaml)
-			_,err=config.FromReader(r)
+			cfg,err=config.FromReader(r)
 		})
+	Describe("Constructing a Config object from reader containing yaml", func(){
 		Context("when the yaml is valid", func(){
 			JustBeforeEach(func(){
 				yaml=`
@@ -40,6 +40,20 @@ var _ = Describe("Config", func() {
 			})
 		})
 	})
-
+	Describe("Reading string property", func(){
+		
+		JustBeforeEach(func(){
+			yaml=`
+			---
+			lorem:
+			  ipsum: sit amet
+			`
+		})
+		It("should succeed",func(){
+			Expect(cfg.String("lorem.ipsum")).To(Equal("sit amet"))
+			Expect(cfg.StringE("lorem.ipsum")).ToNot(HaveOccurred())
+		})
+ 
+	})
 
 })
