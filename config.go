@@ -1,5 +1,8 @@
 package config
 
+import (
+	"io"
+)
 //Config file 
 type Config struct {
  
